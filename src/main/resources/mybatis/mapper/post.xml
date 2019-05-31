@@ -9,6 +9,12 @@
 	]]>
 	</insert>
 	
+	<select id="getPostCategoryId" parameterType="int" resultType="int">
+			<![CDATA[
+				select category_id from post where no=#{no }
+			]]>
+	</select>
+	
 	<select id="getPostList" parameterType="int" resultType="postvo">
 		<![CDATA[
 			select * from post where category_id=#{category_id}
@@ -26,6 +32,7 @@
 			update post set title=#{title },contents=#{contents },category_id=#{category_id } where no=#{no }
 		]]>
 	</update>
+	
 	
 	<delete id="deletePost" parameterType="int">
 		<![CDATA[

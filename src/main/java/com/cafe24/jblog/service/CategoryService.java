@@ -18,11 +18,25 @@ public class CategoryService {
 		
 	}
 	
+	public List<CategoryVo> getCategoryListWithPostNum(String blogId) {
+		return CategoryDao.getCategoryListWithPostNum(blogId);
+		
+	}
+	
 	public boolean addCategory(CategoryVo categoryVo) {
 		return CategoryDao.addCategory(categoryVo);
+	}
+	
+	public void updatePostNum(int category_id) {
+		CategoryDao.updatePostNum(category_id);
+	}
+	
+	public void updateDelPostNum(int category_id) {
+		CategoryDao.updateDelPostNum(category_id);
 	}
 	
 	public boolean deleteCategory(int categoryId) {
 		return CategoryDao.deleteCategory(categoryId);
 	}
+	
 }

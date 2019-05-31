@@ -28,10 +28,26 @@ public class CategoryDao {
 		return sqlSession.selectList("category.getCategoryList", id);
 	}
 	
+	public List<CategoryVo> getCategoryListWithPostNum(String id){
+		return sqlSession.selectList("category.getCategoryListWithPostNum",id);
+	}
+	
+	public void updatePostNum(int category_id) {
+	
+		sqlSession.update("category.updatePostNum",category_id);
+	}
+	
+	public void updateDelPostNum(int category_id) {
+		sqlSession.delete("category.deletePostNum", category_id);
+	}
+	
 	public boolean deleteCategory(int categoryId) {
 		int count = sqlSession.delete("category.deleteCategory", categoryId);
 		return (count==1);
 	}
+	
+	
+	
 	
 	
 }

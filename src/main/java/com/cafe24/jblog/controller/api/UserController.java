@@ -23,7 +23,7 @@ public class UserController {
 	public JSONResult checkId(@RequestParam(value="id",required=true,defaultValue="")String id) {
 		System.out.println("id check 실행 , id="+id);
 		if(!id.contains("@")) {
-			return JSONResult.success(false);
+			return JSONResult.success(true);
 		}
 		
 		Boolean exist = userService.existId(id);

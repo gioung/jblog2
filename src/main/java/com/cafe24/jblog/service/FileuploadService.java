@@ -1,5 +1,6 @@
 package com.cafe24.jblog.service;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -23,6 +24,10 @@ public class FileuploadService {
 		//확장자
 		String extName = originalFilename.substring(originalFilename.lastIndexOf('.')+1);
 		StringBuffer saveFileName = generateSaveFileName(extName); 
+		File file = new File(SAVE_PATH);
+		if(!file.exists()) {
+			file.mkdir();
+		}
 		//long fileSize = multipartFile.getSize();
 		
 		/*System.out.println("##########" + originalFilename);
@@ -31,7 +36,7 @@ public class FileuploadService {
 		System.out.println("##########" + fileSize);*/
 		
 		byte[] fileData = multipartFile.getBytes();
-		OutputStream outputStream = new FileOutputStream(SAVE_PATH+"/"+saveFileName);
+		OutputStream outputStream = new FileOutputStream(file+"/"+saveFileName);
 		outputStream.write(fileData);
 		outputStream.flush();
 		outputStream.close();

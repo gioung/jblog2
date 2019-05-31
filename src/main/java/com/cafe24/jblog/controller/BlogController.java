@@ -164,6 +164,7 @@ public class BlogController {
 		
 		postVo.setCategory_id(category_id);
 		postService.write(postVo);
+		categoryService.updatePostNum(postVo.getCategory_id());
 		
 		
 		return "redirect:/"+blogId;
@@ -203,8 +204,9 @@ public class BlogController {
 	public String deletePost(@PathVariable("blogId")String blogId,
 			@PathVariable("postNo")int postNo,
 			Model model) {
-		
+		PostVo postVo = postService.getPost(postNo);
 		postService.deletePost(postNo);
+		categoryService.updateDelPostNum(postVo.getCategory_id());
 		return "redirect:/"+blogId;
 	}
 	

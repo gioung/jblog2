@@ -5,21 +5,33 @@
 
 	<insert id="insert" parameterType="string">
 	<![CDATA[
-	insert into category(description,reg_date,blog_id) values('기본 카테고리',now(),#{id })
+	insert into category(description,reg_date,post_num,blog_id) values('기본 카테고리',now(),0,#{id })
 	]]>
 	</insert>
 	
 	<insert id="addCategory" parameterType="categoryvo">
 	<![CDATA[
-		insert into category(name,description,reg_date,blog_id) values(#{name },#{description },now(),#{blog_id })
+		insert into category(name,description,reg_date,post_num,blog_id) values(#{name },#{description },now(),0,#{blog_id })
 	]]>
 	</insert>
 	
 	<select id="getCategoryList" parameterType="string" resultType="categoryvo">
 		<![CDATA[
-			select * from category where blog_id=#{blog_id }
+		select * from category where blog_id=#{blog_id }
 		]]>
 	</select>
+	
+	<update id="updatePostNum" parameterType="int">
+		<![CDATA[
+			update category set post_num=post_num+1 where id=#{id }
+		]]>
+	</update>
+	
+	<update id="deletePostNum" parameterType="int">
+		<![CDATA[
+			update category set post_num=post_num-1 where id=#{id }
+		]]>
+	</update>
 	
 	<delete id="deleteCategory" parameterType="int">
 		<![CDATA[

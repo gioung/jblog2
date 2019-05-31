@@ -37,7 +37,7 @@
 					<tr>
 						<td>${categoryVo.id }</td>
 						<td>${categoryVo.name }</td>
-						<td>10</td>
+						<td>${categoryVo.post_num }</td>
 						<td>${categoryVo.description }</td>
 						<td>
 						<c:if test="${status.index>0 }">

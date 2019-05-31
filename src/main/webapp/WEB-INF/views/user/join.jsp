@@ -40,18 +40,13 @@
 												return;
 											}
 											if (response.data == true) {
-												alert('이미 존재하는 이메일입니다. 다른 이메일을 사용해주세요.');
+												alert('이미 존재하는 이메일이거나 이메일 형식에 맞지 않습니다.');
 												$('#blog-id').focus();
 												$('#blog-id').val();
 												return;
 
 											}
-											else if (response.data == false){
-												alert('이메일 형식이 아닙니다.');
-												$('#blog-id').focus();
-												$('#blog-id').val();
-												return;
-											}
+											
 											$('#btn-check').hide();
 											$('#img-check').show();
 										},
@@ -82,10 +77,11 @@
 			<input id="blog-id" name="id" type="text" value="${vo.id }" required>  --%>
 			<form:label class="block-label" path="id">아이디</form:label>
 			<form:input id="blog-id" path="id"/><input id="btn-check" type="button" value="id 중복체크">
+			<img id="img-check" style="display: none;" src="${pageContext.request.contextPath}/assets/images/check.png">
 			<p style="font-weight:bold; color:#f00; text-align:left; padding:0; margin:0">
 			<form:errors path="id" />
 			</p>
-			<img id="img-check" style="display: none;" src="${pageContext.request.contextPath}/assets/images/check.png">
+			
 			
 			<form:label class="block-label" path="password">패스워드</form:label>
 			<form:password path="password"/>

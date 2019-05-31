@@ -6,6 +6,8 @@ public class CategoryVo {
 	private String description;
 	private String reg_date;
 	private String blog_id;
+	private int post_num;
+	
 	public int getId() {
 		return id;
 	}
@@ -37,11 +39,19 @@ public class CategoryVo {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	public int getPost_num() {
+		return post_num;
+	}
+	public void setPost_num(int post_num) {
+		this.post_num = post_num;
+	}
+	
 	@Override
 	public String toString() {
 		return "CategoryVo [id=" + id + ", name=" + name + ", description=" + description + ", reg_date=" + reg_date
-				+ ", blog_id=" + blog_id + "]";
+				+ ", blog_id=" + blog_id + ", post_num=" + post_num + "]";
 	}
+	
 
 	
 	
