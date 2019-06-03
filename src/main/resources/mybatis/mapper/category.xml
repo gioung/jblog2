@@ -18,7 +18,7 @@
 	<select id="getCategoryList" parameterType="string" resultType="categoryvo">
 		<![CDATA[
 		select a.id,a.blog_id,a.name,count(b.category_id) as post_num,a.description from category a left join post b  
-		on blog_id=#{blog_id } and a.id=b.category_id group by b.category_id order by a.id
+		on a.id=b.category_id where a.blog_id=#{blog_id } group by a.id order by a.id;
 		]]>
 	</select>
 	

@@ -64,6 +64,7 @@ public class BlogController {
 		//PostVo
 		List<PostVo> postList = postService.getPostList(categoryId.get());
 		model.addAttribute("postList",postList);
+		System.out.println("postList = "+postList);
 		
 		//PostNo
 		if(postList.size()>0) {
