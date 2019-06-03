@@ -3,7 +3,7 @@
 
 <mapper namespace="post">
 
-	<insert id="write" parameterType="string">
+	<insert id="write" parameterType="postvo">
 	<![CDATA[
 	insert into post(title,contents,reg_date,category_id) values(#{title },#{contents },now(),#{category_id })
 	]]>

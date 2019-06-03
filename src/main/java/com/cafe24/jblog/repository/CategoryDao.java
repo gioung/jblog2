@@ -28,9 +28,6 @@ public class CategoryDao {
 		return sqlSession.selectList("category.getCategoryList", id);
 	}
 	
-	public List<CategoryVo> getCategoryListWithPostNum(String id){
-		return sqlSession.selectList("category.getCategoryListWithPostNum",id);
-	}
 	
 	public void updatePostNum(int category_id) {
 	
@@ -45,6 +42,8 @@ public class CategoryDao {
 		int count = sqlSession.delete("category.deleteCategory", categoryId);
 		return (count==1);
 	}
+
+	
 	
 	
 	
